@@ -1,0 +1,8 @@
+.tilte img{
+    transition: transform 0.3s ease;
+width:100%;
+height:190px;
+padding:1px;
+background-position:center;
+border-radius:5px;
+}

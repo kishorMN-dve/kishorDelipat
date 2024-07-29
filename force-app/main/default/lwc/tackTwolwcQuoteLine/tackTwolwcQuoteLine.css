@@ -1,0 +1,39 @@
+.readonly-input {
+    /* background-color: #f2f2f2;  */
+    cursor: not-allowed;  /* Change the cursor style to indicate it's not editable */
+    /* border: 1px solid #ccc; Add a border for distinction */
+    /* opacity: 0.5; Reduce opacity slightly */
+  
+        /* border: 1px solid black; Set the border to be black */
+  
+}
+/* .container {
+    position: relative; 
+} */
+
+.qliHeading{
+    font-weight: bold;  
+    color: green;
+    size: 30px;
+    margin: 20px;
+    /* align-items: center; */
+}
+.quoteLabel{
+    font-weight: bold;
+    color: white;
+    background-color: rgb(10, 131, 201);
+    size: 40px;
+    margin: 10px;
+    
+}
+.saveBtn{
+    border: 1px;
+    border-radius: 2px;
+}
+.slds-modal__container {
+    max-width: 250rem !important;
+    width: 200% !important;
+    /* margin-right: auto; */
+    left: -55%;
+    /* right: -50%;   */
+}

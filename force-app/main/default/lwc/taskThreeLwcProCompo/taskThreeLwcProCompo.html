@@ -1,0 +1,326 @@
+<template>
+    <!-- <template if:true={showdataTable}>
+       
+<lightning-card title="Data Table">
+
+      
+    <div class="slds-grid slds-gutters">
+ <div class="slds-align_absolute-center" style="height:5rem"> 
+        <div class="slds-col">
+            <span>
+                <lightning-input type="text" label="Search"  placeholder="Search" icon-name="utility:search" onchange={handleSearch}></lightning-input>
+            </span>
+        </div>
+    </div>
+    <div class="slds-align_absolute-center" style="height:5rem"> 
+        <div class="slds-col">
+        <span>
+            
+            <lightning-combobox
+            name="Category"
+            label="Category"
+            value={value}
+            placeholder="Select Category"
+            options={categoryOptions}
+            onchange={handleChange} >
+          </lightning-combobox>
+        </span>
+        </div>
+       </div>
+       <div class="slds-align_absolute-center" style="height:2rem"> 
+        
+        <div class="slds-col">
+        <span>
+
+            <button type="button" class="slds-button slds-button_icon" onclick={handleButtonClick}>
+                <lightning-icon icon-name="utility:search" alternative-text="Search Icon" size="small"></lightning-icon>
+            </button>
+        </span>
+        </div>
+        
+    </div>
+     
+  </div>
+
+  <lightning-datatable
+
+   key-field="Id"
+data={recordpdroduct}
+columns={columns}
+onrowselection={handleOnRowSelection}>
+
+</lightning-datatable>
+
+
+</lightning-card>
+
+</template> -->
+
+
+    <!-- =================================other temple -->
+
+
+    <template if:true={showHtmlTabl}>
+
+        <lightning-card>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+
+                    <header class="slds-modal__header">
+                        <div class="slds-grid slds-grid_pull-padded-medium">
+                            <div class="slds-col slds-p-horizontal_medium">
+                                <span>
+                                    <lightning-input type="text" label="Search" placeholder="Search"
+                                                     icon-name="utility:search" onchange={handleSearching}>
+                                    </lightning-input>
+                                </span>
+                            </div>
+                           
+                            <div class="slds-col slds-p-horizontal_medium">
+                                <span>
+
+                                    <lightning-combobox name="Category" label="Category" value={value}
+                                        placeholder="Select Category" options={categoryOptions} onchange={handleChange}>
+                                    </lightning-combobox>
+                                </span>
+                            </div>
+                            <div class="slds-col slds-p-horizontal_medium">
+                                <span>
+                                    <button type="button" class="slds-button slds-button_icon"
+                                        onclick={handleButtonClick}>
+                                        <lightning-icon icon-name="utility:search" alternative-text="Search Icon"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </span>
+                            </div>
+
+                        </div>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <div class="slds-m-around_medium">
+
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <div class="slds-truncate"> <input type="checkbox" /></div>
+                                        </th>
+
+                                        <th>
+                                            <div class="slds-truncate" title="Product Name">Product Name</div>
+                                        </th>
+                                       
+                                        <th>
+                                            <div class="slds-truncate" title="Category">Category</div>
+                                        </th>
+
+                                        <th>
+                                            <div class="slds-truncate" title="Unit Price">Unit Price</div>
+                                        </th>
+
+                                        <!-- <th>
+                                            <div class="slds-truncate" title="ACTION">Action</div>
+                                        </th> -->
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <!-- preparing data here -->
+                                    <template for:each={recordpdroduct} for:item="item">
+                                        <tr key={item.Id}>
+                                            <td>
+                                                <!-- checkbox -->
+                                                <input type="checkbox" onclick={handleRowEdit} data-id={item.Product2Id} />
+                                            </td>
+
+                                            <td>
+                                                {item.Product2.Name}
+                                            </td>
+                                            <td>
+                                                {item.Product2.Categoury__c}
+                                            </td>
+                                            <td>
+                                                {item.UnitPrice}
+                                            </td>
+
+                                            <!-- <td> -->
+                                                <!-- button icon delete  -->
+                                                <!-- <lightning-button-icon class="slds-icon slds-icon-text-error"
+                                                    icon-name="utility:delete" variant="border-filled"
+                                                    alternative-text="Delete" title="Delete" onclick={handleDeleteClick}
+                                                    data-id={item.Id}>
+                                                </lightning-button-icon>
+                                            </td> -->
+                                        </tr>
+                                    </template>
+
+                                </tbody>
+
+
+                            </table>
+
+
+                        </div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <div class="slds-grid slds-grid_align-center">
+                            <div class="slds-col slds-p-horizontal_x-small">
+                                <lightning-button label="Add More" onclick={handleAddMoreClick}></lightning-button>
+                            </div>
+                            <div class="slds-col slds-p-horizontal_x-small">
+                                <lightning-button label="Next" onclick={handleSaveClick}></lightning-button>
+                            </div>
+                        </div>
+                    </footer>
+
+
+                </div>
+
+
+            </section>
+
+        </lightning-card>
+    </template>
+
+
+    <!-- for next buttton to show product edit-->
+
+    <template if:true={showEditProductCompo}>
+
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- modal header start -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={hideModalBox}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Selected Product</h2>
+                </header>
+
+                <!-- modal body start -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                    <!-- <p>Modal/Popup in Lightning Web Component (LWC) Demo</p> -->
+
+                    <div class="slds-m-around_medium">
+                        <!-- custom datatable with edit here -->
+
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="slds-truncate" title="Sr.No">Sr.No</div>
+                                    </th>
+                                    <th>
+                                        <div class="slds-truncate" title="Opp Line Item">Product Family</div>
+                                    </th>
+                                    <th>
+                                        <div class="slds-truncate" title="Product Name">Product Name</div>
+                                    </th>
+                                     <th>
+                                        <div class="slds-truncate" title="Type">Qunatity</div> 
+                                    </th>
+                                   <!-- <th>
+                                        <div class="slds-truncate" title="HSN">HSN</div> 
+                                    </th>
+                                    <th>
+                                        <div class="slds-truncate" title="UOM">UOM</div> 
+                                    </th> -->
+                                    <!-- <th>
+                                        <div class="slds-truncate" title="UNIT RATE">UNIT RATE</div>
+                                    </th> -->
+                                    <th>
+                                        <div class="slds-truncate" title="DIS TYPE">DIS TYPE</div>
+                                    </th>
+                                    <th>
+                                        <div class="slds-truncate" title="DIS VALUE">DIS VALUE</div>
+                                    </th>
+                                    <!-- <th>
+                                        <div class="slds-truncate" title="QUANTITY">QUANTITY</div>
+                                    </th> -->
+                                    <!-- <th>
+                                        <div class="slds-truncate" title="QUANTITY">STOCK[DELHI]</div> 
+                                    </th> -->
+                                    <!-- <th>
+                                        <div class="slds-truncate" title="ACTION">Action</div>
+                                    </th> -->
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <!-- preparing data here -->
+                                <template for:each={productList} for:item="item">
+                                    <tr key={item.Id} onclick={handleRowEdit}>
+                                        <td>
+                                            {item.srNo}
+                                        </td>
+                                        <td>
+                                            {item.Family}
+                                        </td>
+                                        <td>
+                                            {item.Name}
+                                        </td>
+                                        <td>
+                                            <lightning-input class="disVal" name="quantity" type="number" data-id={item.Id}
+                                                            value={item.Quantity__c} onchange={discountValueChangeHandler}>
+                                            </lightning-input>
+                                            <!-- {item.Quantity__c} -->
+                                        </td>
+                                        <td>
+                                            <lightning-combobox class="dicountType" value={item.Discount_Type__c} data-id={item.Id}
+                                                                onchange={handleDistypeChange} options={disTypeOptions}>
+                                            </lightning-combobox>
+                                        </td>
+                                        <td>
+                                            <lightning-input class="disVal" name="discountChanged" type="number" data-id={item.Id}
+                                                            value={item.Discount_Value__c} onchange={discountValueChangeHandler}>
+                                            </lightning-input>
+                                        </td>
+                                        <!-- <td>
+                                            <lightning-input class="disVal" name="qunatityChnaged" type="number" value={item.Quantity}
+                                                                onchange={discountValueChangeHandler} data-id={item.Id}>
+                                            </lightning-input>
+                                        </td> -->
+
+                                        <!-- <td> -->
+                                            <!-- button icon delete  -->
+                                            <!-- <lightning-button-icon  class="slds-icon slds-icon-text-error"
+                                                                    icon-name="utility:delete"
+                                                                    variant="border-filled"
+                                                                    alternative-text="Delete"
+                                                                    title="Delete"
+                                                                    onclick={handleDeleteClick}
+                                                                    data-id={item.Id}>
+                                            </lightning-button-icon>
+                                        </td> -->
+                                    </tr>
+                                </template>
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+                <!-- modal footer start-->
+                <footer class="slds-modal__footer">
+                    <lightning-button class="slds-align_absolute-center" label="Save"
+                        onclick={handleSaveDMlClick}></lightning-button>
+                </footer>
+
+            </div>
+        </section>
+
+    </template>
+
+
+</template>

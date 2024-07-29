@@ -1,0 +1,48 @@
+/* @media screen and (max-width: 1200px) {
+    .slds-modal__container {
+        max-width: 90% !important;
+        width: 90% !important;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .slds-modal__container {
+        max-width: 95% !important;
+        width: 95% !important;
+    }
+} */
+
+.slds-modal__container {
+    max-width: 250rem !important;
+    width: 200% !important;
+    /* margin-right: auto; */
+    left: -55%;
+    /* right: -50%;   */
+}
+
+/* .slds-modal__container {
+    /* width: 200%; Optionally adjust the width of the content */
+/* height: 120%; Optionally adjust the height of the content */
+/* } */
+
+.slds-text-heading_medium {
+    background-color: rgb(36, 171, 238);
+    font-weight: bold;
+    margin: 10px;
+    color: aliceblue;
+}
+
+/* .slds-truncate {
+    background-color: rgb(36, 171, 238);
+    font-weight: bold;
+    color: aliceblue;
+
+} */
+
+.dicountType {
+    width: 120px;
+}
+
+.disVal {
+    width: 120px;
+}

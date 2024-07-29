@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Application child Component">
+        <div class="slds-align_absolute-center">
+      <div>
+        <lightning-input type="text" label="FirstName" onchange={chaneInputHandler}></lightning-input>
+      </div>
+      <div>
+        <lightning-input type="text" label="LastName" onchange={chaneInputHandler}></lightning-input>
+      </div>
+     
+
+</div>
+<lightning-button label="Select button" placeholder="Button" onclick={saveHandler} slot="actions"></lightning-button>
+    </lightning-card>
+    
+</template>

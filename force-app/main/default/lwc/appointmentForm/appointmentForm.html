@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="Appointment Lookup">
+        <div class="slds-p-around_medium">
+            <lightning-record-edit-form object-api-name="Appointment_Detail__c">
+                <lightning-messages></lightning-messages>
+                <lightning-input-field field-name="Contact__c" label="contact" onchange={handleChangeValue} required></lightning-input-field>
+            </lightning-record-edit-form>
+            <lightning-input type="text" label="Subject" onchange={handleChangeValue} name='subject' required></lightning-input>
+            <lightning-input type="date" label="Appointment Date" onchange={handleChangeValue} name='date' required></lightning-input>
+            <lightning-input type="time" label="Appointment Time" onchange={handleChangeValue} name='time' required></lightning-input>
+            <label for="description" name="description">Description</label>
+            <textarea id="description" name="description"  rows="4" cols="50" onchange={handleChangeValue} style="width:100%;height:100%" required></textarea>
+        </div>
+        <lightning-button variant="success" label="Submit" onclick={handleSubmit}></lightning-button>
+    </lightning-card>
+    <template if:true={showDataTable}>
+    <lightning-card title="Data Table">
+
+<lightning-datatable
+key-field="Id"
+data={dataRecord}
+columns={columns}
+onrowaction={handleSelectTable}
+>
+</lightning-datatable>
+    </lightning-card>
+</template>
+</template>

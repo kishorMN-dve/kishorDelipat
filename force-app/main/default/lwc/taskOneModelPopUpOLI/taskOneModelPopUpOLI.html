@@ -1,0 +1,138 @@
+<template>
+    <!-- modal start -->
+    <template if:true={isShowModal}>
+
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- modal header start -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={hideModalBox}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Edit All Opportunity Line
+                        Item</h2>
+                </header>
+
+                <!-- modal body start -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <!-- <p>Modal/Popup in Lightning Web Component (LWC) Demo</p> -->
+
+                    <div class="slds-m-around_medium">
+                        <!-- custom datatable with edit here -->
+
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="slds-truncate" title="Sr.No">Sr.No</div>
+                                    </th>
+                                    <th>
+                                        <div class="slds-truncate" title="Opp Line Item">Opp Line Item</div>
+                                    </th>
+                                    <th>
+                                        <div class="slds-truncate" title="Product Name">Product Name</div>
+                                    </th>
+                                    <!-- <th>
+                                        <div class="slds-truncate" title="Type">Type</div> 
+                                    </th>
+                                    <th>
+                                        <div class="slds-truncate" title="HSN">HSN</div> 
+                                    </th>
+                                    <th>
+                                        <div class="slds-truncate" title="UOM">UOM</div> 
+                                    </th> -->
+                                    <th>
+                                        <div class="slds-truncate" title="UNIT RATE">UNIT RATE</div>
+                                    </th>
+                                    <th>
+                                        <div class="slds-truncate" title="DIS TYPE">DIS TYPE</div>
+                                    </th>
+                                    <th>
+                                        <div class="slds-truncate" title="DIS VALUE">DIS VALUE</div>
+                                    </th>
+                                    <th>
+                                        <div class="slds-truncate" title="QUANTITY">QUANTITY</div>
+                                    </th>
+                                    <!-- <th>
+                                        <div class="slds-truncate" title="QUANTITY">STOCK[DELHI]</div> 
+                                    </th> -->
+                                    <th>
+                                        <div class="slds-truncate" title="ACTION">Action</div>
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <!-- preparing data here -->
+                                <template for:each={oliData} for:item="item">
+                                    <tr key={item.Id} onclick={handleRowEdit}>
+                                        <td>
+                                            {item.srNo}
+                                        </td>
+                                        <td>
+                                            {item.Name}
+                                        </td>
+                                        <td>
+                                            {item.Product2.Name}
+                                        </td>
+                                        <td>
+                                            {item.UnitPrice}
+                                        </td>
+                                        <td>
+                                            <lightning-combobox class="dicountType" value={item.Discont__c} data-id={item.Id}
+                                                                onchange={handleDistypeChange} options={disTypeOptions}>
+                                            </lightning-combobox>
+                                        </td>
+                                        <td>
+                                            <lightning-input class="disVal" name="discountChanged" type="number" data-id={item.Id}
+                                                            value={item.Discount_value__c} onchange={discountValueChangeHandler}>
+                                            </lightning-input>
+                                        </td>
+                                        <td>
+                                            <lightning-input class="disVal" name="qunatityChnaged" type="number" value={item.Quantity}
+                                                                onchange={discountValueChangeHandler} data-id={item.Id}>
+                                            </lightning-input>
+                                        </td>
+
+                                        <td>
+                                            <!-- button icon delete  -->
+                                            <lightning-button-icon  class="slds-icon slds-icon-text-error"
+                                                                    icon-name="utility:delete"
+                                                                    variant="border-filled"
+                                                                    alternative-text="Delete"
+                                                                    title="Delete"
+                                                                    onclick={handleDeleteClick}
+                                                                    data-id={item.Id}>
+                                            </lightning-button-icon>
+                                        </td>
+                                    </tr>
+                                </template>
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+                <!-- modal footer start-->
+                <footer class="slds-modal__footer">
+                    <lightning-button class="slds-align_absolute-center" label="Save"
+                        onclick={handleSaveClick}></lightning-button>
+                </footer>
+
+            </div>
+        </section>
+        <!-- <div class="slds-backdrop slds-backdrop_open"></div> -->
+    </template>
+    <!-- modal end -->
+
+</template>

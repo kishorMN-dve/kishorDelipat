@@ -1,0 +1,12 @@
+.slds-align_absolute-center lightning-input{
+    width: 400px;
+    /* margin-left: 100px; */
+    /* text-align: l; */
+}
+.slds-align_absolute-center{
+    display:flex; /* Use flexbox layout */
+    justify-content:flex-start; /* Align items to the start (left) */
+    flex-direction:column; /* Arrange items vertically */
+    align-items:flex-start;
+
+}

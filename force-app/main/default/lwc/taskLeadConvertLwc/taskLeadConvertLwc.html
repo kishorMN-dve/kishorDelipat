@@ -1,0 +1,108 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+        aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+
+
+            <!-- modal body start -->
+
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <!-- <p>Modal/Popup in Lightning Web Component (LWC) Demo</p> -->
+
+                <div class="containerBody">
+
+
+                    <div class="quoteLabel slds-align_absolute-center"></div>
+                    <!-- {recordId} -->
+                    <div class="slds-m-around_medium">
+                        <h1 class="slds-text-heading_small">Account Detail</h1>
+
+                    </div>
+
+                    <div class="slds-m-around_medium slds-grid slds-gutters">
+                        <div class="slds-grid slds-wrap">
+
+                            <lightning-input type="text" class="slds-col slds-size_6-of-12" label="Company"
+                                name="company" onchange={hanglerLeadFirstName}>
+                            </lightning-input>
+                            <lightning-combobox name="rating" class="slds-col slds-size_6-of-12" label="Rating"
+                                placeholder="-Select rating-" options={ratingOption} value={selectedrating}
+                                onchange={hanglerLeadFirstName}>
+                            </lightning-combobox>
+                            <lightning-input type="Phone" class="slds-col slds-size_6-of-12" label="Phone" name="Phone"
+                                onchange={hanglerLeadFirstName}>
+                            </lightning-input>
+                            <lightning-input class="readonly-input slds-col slds-size_6-of-12" type="number"
+                                label="Employee Number" name="Employee" onchange={hanglerLeadFirstName}>
+                            </lightning-input>
+
+                        </div>
+
+                    </div>
+
+                    <div class="quoteLabel slds-align_absolute-center"></div>
+                    <!-- {recordId} -->
+                    <div class="slds-m-around_medium">
+                        <h1 class="slds-text-heading_small">Contact Detail</h1>
+
+                    </div>
+
+                    <div class="slds-m-around_medium slds-grid slds-gutters">
+                        <div class="slds-grid slds-wrap">
+
+
+
+                            <lightning-input class="readonly-input slds-col slds-size_6-of-12" type="text"
+                                label="First Name" name="oppName" onchange={hanglerLeadFirstName}>
+                            </lightning-input>
+                            <lightning-input type="text" class="slds-col slds-size_6-of-12" label="last Name"
+                                name="last Name" onchange={hanglerLeadFirstName}>
+                            </lightning-input>
+
+
+                            <lightning-input type="email" class="slds-col slds-size_6-of-12" label="Email address"
+                                name="email" onchange={hanglerLeadFirstName}></lightning-input>
+                            <lightning-input type="Phone" class="slds-col slds-size_6-of-12" label="Mobile"
+                                name="Mobile" onchange={hanglerLeadFirstName}>
+                            </lightning-input>
+                        </div>
+                    </div>
+
+                    <!-- {recordId} -->
+
+                    <div class="quoteLabel slds-align_absolute-center"></div>
+                    <div class="slds-m-around_medium">
+                        <h1 class="slds-text-heading_small">Opportunity Detail</h1>
+
+                    </div>
+
+                    <div class="slds-m-around_medium slds-grid slds-gutters">
+                        <div class="slds-grid slds-wrap">
+
+
+
+                            <lightning-combobox name="Product Interest"
+                                class="slds-col slds-size_12-of-12 opportunity-detail-input" label="Product Interest"
+                                placeholder="-Product Interest-" options={productInterestOption} value={productInterest}
+                                onchange={hanglerLeadFirstName}>
+                            </lightning-combobox>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal footer start-->
+            <footer class="slds-modal__footer">
+                <lightning-button class="slds-align_absolute-center" label="Save"
+                    onclick={handleSaveClick}></lightning-button>
+            </footer>
+
+        </div>
+    </section>
+
+
+</template>

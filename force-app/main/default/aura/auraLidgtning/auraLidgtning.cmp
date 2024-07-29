@@ -1,0 +1,14 @@
+<aura:component  controller="AccountProviderClass" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+    <aura:attribute name="accountObject" type="Account" default="{'sObjectType' :'Account'}" />
+<lightning:card footer="Card Footer" title="Application from">
+    
+        <lightning:input  name="Name" type="text" placeholder="Name 1"  label="Input Value" value="{!v.accountObject.Name}" />
+            <lightning:input type="text" name="accSLA" label="Enter SLA" value="{!v.accountObject.SLA__c}"/> 
+
+     
+    </lightning:card>
+
+
+
+</aura:component>

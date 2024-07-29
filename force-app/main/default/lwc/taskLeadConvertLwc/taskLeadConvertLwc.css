@@ -1,0 +1,56 @@
+/* Add this CSS to ensure consistency in appearance for all fields */
+
+
+/* Style for all input fields */
+.lightning-input,
+.lightning-combobox {
+    width: calc(50% - 1rem); /* Set width to occupy half of the container minus the gutter space */
+    margin-right: 1rem; /* Add space between fields */
+}
+
+/* Style for all labels */
+.slds-form-element__label {
+    font-weight: bold;
+}
+
+/* Style for readonly-input */
+.readonly-input {
+    cursor: not-allowed;
+}
+
+/* Style for containerBody */
+.containerBody {
+    padding: 1rem; /* Add padding for spacing */
+}
+
+/* Style for quoteLabel */
+.quoteLabel {
+    font-weight: bold;
+    color: white;
+    background-color: rgb(160, 170, 176);
+    padding: 0.5rem 1rem; /* Add padding for spacing */
+    margin: 0.5rem 0; /* Add margin for spacing */
+}
+
+/* Style for slds-modal__container */
+.slds-modal__container {
+    max-width: 100rem;
+    width: 100%;
+    margin-left: auto; /* Center modal horizontally */
+    margin-right: auto; /* Center modal horizontally */
+}
+/* Style for Opportunity Detail input field */
+.opportunity-detail-input {
+    width: calc(200% - 1rem); /* Set width to occupy full width of container minus gutter space */
+    margin-right: 1rem; /* Add space between fields */
+}
+
+/* Optional: If you want to match the styling of other input fields */
+.opportunity-detail-input label {
+    font-weight: bold;
+}
+
+/* Style for custom heading */
+.custom-heading {
+    font-weight: bold;
+}

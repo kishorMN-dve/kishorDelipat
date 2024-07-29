@@ -1,0 +1,25 @@
+<template>
+   <lightning-card title="PRACTICE CARD">
+      <div style="display: flex; justify-content: left;">
+         <div style="width: 50%;">
+             <lightning-input title="text" label="Input" placeholder="select input" data-formfield="accname"></lightning-input>
+             <!-- <lightning-input type="date" label="date" placeholder="select date" onchange={changedatefield}></lightning-input> -->
+            <lightning-input type="date" label="Date" placeholder="Select date" onchange={changedatefield}></lightning-input>
+
+         </div> 
+     </div><br>
+<lightning-button variant="success" label="Save" onclick={onSaveHandler}></lightning-button>
+
+
+<lightning-datatable
+key-field="Id"
+data={data}
+columns={columns}>
+
+
+
+
+</lightning-datatable>
+   </lightning-card>
+    
+</template>

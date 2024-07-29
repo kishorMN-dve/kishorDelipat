@@ -1,0 +1,42 @@
+/* template 2 */
+.slds-modal__container {
+    max-width: 250rem !important;
+    width: 200% !important;
+   
+    left: -55%;
+  
+}
+
+.slds-text-heading_medium {
+    background-color: rgb(36, 171, 238);
+    font-weight: bold;
+    margin: 10px;
+    color: aliceblue;
+}
+.slds-table thead th {
+    background-color: rgb(36, 100, 213); 
+}
+
+.slds-table thead th div {
+    color: white; 
+}
+
+
+.slds-table thead th div {
+    border-right: 1px solid rgb(222, 173, 173); 
+}
+
+.slds-button_icon {
+    width: 100px; /* Adjust the width of the button as needed */
+    height: 100px; /* Adjust the height of the button as needed */
+    padding: 0; /* Remove any default padding */
+    margin-top: 20px; /* Adjust the margin-top to move the button down */
+    margin-left: 2px; /* Adjust the margin-left to move the button left */
+    /* border: 1px solid black; */
+}
+
+.slds-button_icon lightning-icon {
+    width: 100%; /* Make the icon fill the button width */
+    height: 100%; /* Make the icon fill the button height */
+}
+         /* template 1 */

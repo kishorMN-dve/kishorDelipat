@@ -1,0 +1,38 @@
+<template>
+    select id ={parentData}
+    
+    <lightning-layout multiple-rows="true">
+    <template lwc:if={recordData}>
+<template for:each={recordData} for:item="record">
+<lightning-layout-item size="6" key={record.id} padding="around-small" class="slds-align_absolute-center">
+
+    <div class="title_wrapper"  onclick={classHandler}   data-id={record.Product_Name__c}>
+       
+        <div class="tilte">
+            <img src={record.image_url__c}/>
+            </div>
+
+            <div class="Player_Data">
+                <h1  class="slds-text-heading_medium">{record.Product_Name__c}</h1>
+                <h1  class="slds-text-heading_medium">{record.Price__c} </h1>  
+                <lightning-formatted-rich-text value={record.Product_detail__c}></lightning-formatted-rich-text> 
+                <!-- <p> {record.Product_detail__c}</p> -->
+                <!-- <p> {record.Price__c}  </p>  -->
+                </div>
+
+
+    </div>
+
+
+
+</lightning-layout-item>
+
+
+
+
+</template>
+
+
+    </template>
+</lightning-layout>
+</template>

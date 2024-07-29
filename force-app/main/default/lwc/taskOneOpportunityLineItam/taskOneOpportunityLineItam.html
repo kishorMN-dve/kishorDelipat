@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Opportunity Line Items" icon-name="standard:opportunity">
+        <div class="slds-m-around_medium">
+            <template if:true={opportunityLineItems}>
+                <lightning-datatable
+                    data={opportunityLineItems}
+                    columns={columns}
+                    draft-values={draftValues}
+                    onrowaction={handleRowAction}
+                    key-field="Id"
+                ></lightning-datatable>
+            </template>
+            <template if:false={opportunityLineItems}>
+                <p>No Opportunity Line Items found.</p>
+            </template>
+        </div>
+
+
+
+    </lightning-card>
+   
+    
+    
+</template>

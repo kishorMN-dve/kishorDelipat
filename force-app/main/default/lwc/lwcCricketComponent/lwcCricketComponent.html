@@ -1,0 +1,31 @@
+<template>
+      <lightning-card title="Cricket">
+      <!-- <lightning-input type="text"  label="Input 1" placeholder="select text" onchange={handleClick} ></lightning-input>
+      <lightning-input type="text" label="Input 2" placeholder="select text" onchange={handleClick}></lightning-input> -->
+
+      <div class="slds-align_absolute-center" style="height:5rem">
+      <lightning-combobox
+      name="status"
+      label="Status"
+      placeholder="Choose Status"
+      value={value}
+      onchange={handleChangeCombobox}
+      options={arryDataLabelValue}
+   >
+   </lightning-combobox>
+   </div>
+   <template lwc:if={booleandata}>
+   <div class="slds-align_absolute-center">
+   selected Player={nameData}
+   </div>
+</template>
+   <!-- slot use if you whant button move on right side then use -->
+      <lightning-button label="New Cricketer" onclick={handleInputChange} slot="actions"></lightning-button>
+
+      
+   </lightning-card>
+   <!-- call lwc cricket componet-->
+   <div class="slds-m-top_small">
+      <c-player-serch-filter status-value={value}  onselectevent={handlerChild}  ></c-player-serch-filter>
+   </div>
+   </template>

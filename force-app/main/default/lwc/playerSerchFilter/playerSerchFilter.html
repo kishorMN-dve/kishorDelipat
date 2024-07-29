@@ -1,0 +1,30 @@
+<template>
+        <lightning-card title="Cricker Name">
+            <lightning-layout multiple-rows="true">
+
+    <template lwc:if={cricketData}>
+        <template for:each={cricketData} for:item="Player">
+                <lightning-layout-item size="3" key={Player.Id} padding="around-small" class="slds-align_absolute-center">
+                    <!-- card stater -->
+            <div class="title_wrapper"  onclick={classHandler}   data-id={Player.cricket_Name__c}>
+                
+                <div class="tilte">
+                <img src={Player.Image_Url__c}/>
+                </div>
+                
+                <div class="Player_Data">
+                <h1  class="slds-text-heading_medium">{Player.cricket_Name__c}</h1>  
+                <p>  Run:{Player.Run__c}</p>
+                <p>  Age:{Player.Age__c}  </p>
+                </div>
+
+            </div>
+                </lightning-layout-item> 
+            
+            </template>
+    </template>
+    </lightning-layout>
+
+
+        </lightning-card>
+    </template>

@@ -1,0 +1,158 @@
+<apex:page controller="GetQuoteData" renderAs="pdf">
+    <div style="border-collapse: collapse; width: 100%; margin: auto; font-family: Arial, sans-serif; line-height: 1.6; color: #333333; background-color: #ffffff;">
+         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: -15%;"> <!-- Decreased margin-bottom value -->
+            <div style="font-size: 16px; font-weight: bold; color: #333333; padding-top: 20px;">Ref No: RF2024-EMP-123456</div>
+
+            <div style="text-align: right;">
+                <img src="{!$Resource.VFPAGEiMAGE}" alt="Placeholder Image" width="100" height="100"/>
+                        <div style="text-align: right;">
+           <div><strong>Data: {!currentDate}</strong>
+                            
+                            </div>
+        </div>
+            </div>           
+        </div>
+
+
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom:5%;">
+            <div style="text-align: left;">
+                <div><strong>To:</strong> 
+                     {!name}</div>  
+                     
+                    
+            </div>
+            <div style="font-size: 14px; color: #333333; margin-top: 10px;">
+                <p style="margin: 0;">Dear sir,</p>
+                <p style="margin: 0;">I hope this letter finds you in good health and spirits.</p>
+                <!-- Additional content here -->
+            </div>
+        </div>
+        
+        <table style="border-collapse: collapse; width: 100%; border: 1px solid #dddddd;">
+            <caption style="font-size: 18px; font-weight: bold; color: #333333; margin-bottom: 10px;">Quote Caption</caption>
+            <thead>
+                <tr>
+                    <th style="padding: 10px; vertical-align: top; background-color: #f2f2f2; font-weight: bold; text-align: left; border-bottom: 1px solid #dddddd;">Sr No.</th>
+                    <th style="padding: 10px; vertical-align: top; background-color: #f2f2f2; font-weight: bold; text-align: left; border-bottom: 1px solid #dddddd;">Product Name</th>
+                    <th style="padding: 10px; vertical-align: top; background-color: #f2f2f2; font-weight: bold; text-align: left; border-bottom: 1px solid #dddddd;">Product Code</th>
+                    <th style="padding: 10px; vertical-align: top; background-color: #f2f2f2; font-weight: bold; text-align: left; border-bottom: 1px solid #dddddd;">Quantities</th>
+                    <th style="padding: 10px; vertical-align: top; background-color: #f2f2f2; font-weight: bold; text-align: left; border-bottom: 1px solid #dddddd;">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <apex:repeat value="{!quoteLineItems}" var="quoteLineItemWrapper">
+                    <tr>
+                        <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">{!quoteLineItemWrapper.serialNumber}</td>
+                        <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">{!quoteLineItemWrapper.qli.Product2.Name}</td>
+                        <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">{!quoteLineItemWrapper.qli.Product2.ProductCode}</td>
+                        <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">{!quoteLineItemWrapper.qli.Quantity}</td>
+                        <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">{!quoteLineItemWrapper.qli.Subtotal}</td>
+                    </tr>
+                </apex:repeat>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="10" style="font-size:10px; color: #999999; margin-top:10px; text-align:center;">
+                         <p style="margin: 0;">#19/C, Vyshya Bank Colony, BTM Layout 2nd Stage,</p>
+                         <p style="margin: 0;">       Bangalore – 560076.        </p>
+                       
+
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
+    
+    <!-- Second Page -->
+       <div style="page-break-before: always;">
+        <div style="border-collapse: collapse; width: 100%; margin: auto; font-family: Arial, sans-serif; line-height: 1.6; color: #333333; background-color: #ffffff;">
+         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10%;"> <!-- Decreased margin-bottom value -->
+            <div style="text-align: right;">
+                <img src="{!$Resource.VFPAGEiMAGE}" alt="Placeholder Image" width="100" height="100"/>
+                        <div style="text-align: right;">
+           <div><strong>Data: {!currentDate}</strong>
+                            
+                            </div>
+        </div>
+            </div>           
+        </div>
+ 
+        <table style="border-collapse: collapse; width: 100%; border: 1px solid #dddddd;">
+            <caption style="font-size: 18px; font-weight: bold; color: #333333; %;">BANK ACCOUNT DETAILS</caption>
+            <thead>
+                <tr>
+                    <th style="padding: 10px; vertical-align: top; background-color: #f2f2f2; font-weight: bold; text-align: left; border-bottom: 1px solid #dddddd;">Particulards</th>
+                    <th style="padding: 10px; vertical-align: top; background-color: #f2f2f2; font-weight: bold; text-align: left; border-bottom: 1px solid #dddddd;">Date</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">Name of Supplier</td>
+                    <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">Cloud Expert India pvt Ltd</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">Address for correspondance</td>
+                    <td style="padding: 5px; vertical-align: top; border-bottom: 0px solid #dddddd;">
+                      <p style="margin: 0;">#19/C, Vyshya Bank Colony,</p>
+                    <p style="margin: 0;">BTM Layout 2nd StageBangalore 560076</p>
+                    </td>
+                </tr>
+                
+                 <tr>
+                    <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">Bank Name</td>
+                    <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">HDFC,bank India</td>
+                </tr>
+                  <tr>
+                    <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">Branch And Address</td>
+                    <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">
+                    <p style="margin: 0;">HDFC Bank Limited, 1st Floor,</p>
+                           <p style="margin: 0;">Lower Parel, Mumbai - 400013, Maharashtra, India</p>
+                      </td>
+                </tr>
+                  <tr>
+                    <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">Bank Acc. Non</td>
+                    <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">1234567890</td>
+                </tr>
+                 <tr>
+            <td  style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;"> IFSC Code</td>
+             <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">HDFC0000123</td>
+
+        </tr>
+                 <tr>
+            <td  style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">PAN Number</td>
+             <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">PAN Number</td>
+
+        </tr>
+              
+                <tr>
+                    <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">GST registration number</td>
+                    <td style="padding: 10px; vertical-align: top; border-bottom: 1px solid #dddddd;">
+                        <p style="margin: 0;">Maharashtra 27ABCDE1234F1ZY</p>
+                         <p style="margin: 0;">Uttar Pradesh 09ABCDE1234F1ZY</p>
+                           <p style="margin: 0;">Gujarat 29ABCDE1234F1ZY</p>
+                          <p style="margin: 0;">Tamil Nadu 24ABCDE1234F1ZY</p>
+                      
+                      </td>
+                </tr>
+               
+               
+                <!-- Add more rows with other account details as needed -->
+            </tbody>
+          
+        </table>
+              <tfoot>
+                <tr>
+                    <td colspan="12" style="font-size: 15px; margin-top: 70%; text-align: center; font-weight: bold;">
+                             <p style="margin: 0;"><strong>Note: Payment will be accepted by cheque, DD, and through online transfer mode.</strong></p>
+                         <p style="margin: 5;"><strong>...</strong></p>
+                  </td>
+
+                </tr>
+            </tfoot>
+    </div>
+           <div style="text-align: right;">Created By</div>
+    </div>
+</apex:page>

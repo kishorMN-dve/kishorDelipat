@@ -1,0 +1,93 @@
+<template>
+    <!-- this is data show BUYER  -->
+<template if:true={shoWbuyerDate}>
+    
+    <lightning-card title="Book Payment">
+
+<lightning-input type="text" label="Buyer Name" class="slds-p-horizontal--xx-small"  placeholder="Input Name" data-formfield="bccName"></lightning-input>
+
+
+                        <lightning-combobox
+                            name="Interest__c"
+                            label="Interest__c"
+                            placeholder="Choose Intrest"
+                            value={buyerObject.Interest__c}
+                            onchange={handleChangeOption}
+                            options={accTypeOptions}
+                            class="slds-p-horizontal--xx-small" 
+                            >
+                        </lightning-combobox></br>
+<lightning-button variant="success" label="Save" onclick={saveHandlerButton}></lightning-button>
+</lightning-card>
+</template>
+
+
+                               <!-- DATA TABLE BOOK -->
+<template if:true={dataShowCheckBox}>
+    <lightning-card title="Book Data Show">
+      <template if:true={areDetailsVisible}>
+                    <lightning-datatable
+                    key-field="Id"
+                    data={bookData}
+                    columns={columns}    
+                   draft-values={draftValues} 
+                   onrowselection={selectedRecordsHandler}> 
+                  </lightning-datatable>
+     </template>
+
+                <template if:false={areDetailsVisible}>
+                <div style=  "color: red; ">
+                <P><b>RECORD NOT FOUND</b></P>
+                </div>
+                </template>
+</lightning-card>
+
+</template>
+
+
+
+   
+
+<!-- <template if:true={checkBooleanPaymnet}>
+    <lightning-card title="Payment Method">
+    <lightning-record-form
+    object-api-name={paymnetObject}
+    fields={myFields}
+    onsuccess={handleAccountCreated}
+  >
+  </lightning-record-form>
+
+</template> -->
+
+
+<!-- this is custom way use lookup -->
+<template if:true={checkPatmnetcheckboc}>
+<lightning-card titile="Paymnet">
+    <div class="input">
+<lightning-input type="search"  placeholder="Lookup Field"  label="Buyer Lookup"   data-formfield="accBuy"   class="slds-p-horizontal--xx-small"  value={buyerObject.Name}  read-only> </lightning-input>
+
+<template for:each={name} for:item="account" for:index="index">  
+    <div class="slds-p-left_small" key={account.Id}>  
+        <lightning-input type="search"  placeholder="Lookup Field"  label="Book Lookup" value={account.Name}  data-formfield="accBook" class="slds-p-horizontal--xx-small"    read-only> </lightning-input>
+        <lightning-input type="number" name="Price Of Book"  class="slds-p-horizontal--xx-small" data-formfield="accPrice"   placeholder="Enter the Number" label="Enter a number"   value={account.Price__c} read-only></lightning-input>
+
+    </div>  
+  </template>  
+<lightning-button variant="success" label="Payment Book" onclick={paymentBookButton}></lightning-button>
+</div>
+</lightning-card>
+
+
+</template>
+
+<!-- <lightning-input type="toggle" label="Toggle value" checked></lightning-input> -->
+
+   
+             <!-- this is stabdard way you can use lookup field -->
+<!-- <lightning-record-edit-form object-api-name="Payment__c" id="createContactForm">
+       
+        <lightning-input-field field-name="Buyer_Info__c"> </lightning-input-field>
+    </lightning-record-edit-form> -->
+
+    
+</template>

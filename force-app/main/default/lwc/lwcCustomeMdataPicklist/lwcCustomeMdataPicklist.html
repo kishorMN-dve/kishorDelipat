@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="CUSTOME METADATA">
+                <lightning-combobox
+                label="Country"
+                value={metadataObject.Country__c}
+                options={country}
+                onchange={handleCountryChange}
+                ></lightning-combobox>
+
+        <!-- <lightning-combobox
+        label="City"
+        value={metadataObjecta}
+        options={cityOp}
+        onchange={handleCityChange}>
+       </lightning-combobox> -->
+
+       <lightning-combobox
+       label="State"
+       value={metadataObject}
+       options={state}
+       onchange={handleStateChange}>
+      </lightning-combobox>
+
+
+data=={metadataObjecta}
+
+    </lightning-card>
+    
+</template>
