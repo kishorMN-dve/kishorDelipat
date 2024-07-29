@@ -30,6 +30,11 @@
                 <default>false</default>
                 <label>white</label>
             </value>
+            <value>
+                <fullName>orange</fullName>
+                <default>false</default>
+                <label>orange</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>
